@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Curators.cs" />
+    <None Include="Models\Curators.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _09._09_Зв_язки_між_таблицями
+namespace _09._09_Зв_язки_між_таблицями.Models
 {
     public class Groups
     {
