@@ -7,5 +7,7 @@
         public string Name { get; set; } = null!;
         public decimal Salary { get; set; }
         public string Surname { get; set; } = null!;
+        public virtual ICollection<Lectures> Lectures { get; set; }
+            = new HashSet<Lectures>();
     }
 }

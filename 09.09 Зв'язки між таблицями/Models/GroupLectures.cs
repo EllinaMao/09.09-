@@ -12,6 +12,6 @@ namespace _09._09_Зв_язки_між_таблицями.Models
         public int GroupId { get; set; }
         public Groups Group { get; set; } = null!;//навигационка на групу
         public int LectureId { get; set; }
-        public Lectures Lecture { get; set; } = null!;//навигационка на лекцію
+        public ICollection<Lectures> Lecture { get; set; } = new HashSet<Lectures>;//навигационка на лекцію
     }
 }

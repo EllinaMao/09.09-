@@ -5,6 +5,6 @@
         public int Id { get; set; }
         public string Name { get; set; } = null!;
 
-        public List<Departments> Departments { get; set; } = new List<Departments>();//это навигационка на кафедры, помни
+        public ICollection<Departments> Departments { get; set; } = new HashSet<Departments>();//навигационка на департаменты
     }
 }

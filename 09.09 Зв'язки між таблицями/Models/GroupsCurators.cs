@@ -10,8 +10,8 @@ namespace _09._09_Зв_язки_між_таблицями.Models
     {
         public int Id { get; set; }
         public int GroupId { get; set; }
-        public Groups Group { get; set; } = null!;//навигационка на групу
         public int CuratorId { get; set; }
-        public Curators Curator { get; set; } = null!;//навигационка на куратора
+        public virtual Groups Group { get; set; } = null!;//навигационка на групу
+        public virtual Curators Curator { get; set; } = null!;//навигационка на куратора
     }
 }

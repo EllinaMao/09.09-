@@ -6,5 +6,7 @@
         public string Name { get; set; } = null!;
         public int Rating { get; set; }
         public string Surname { get; set; } = null!;
+        public virtual ICollection<GroupStudents> GroupsStudents { get; set; }
+            = new HashSet<GroupStudents>();
     }
 }

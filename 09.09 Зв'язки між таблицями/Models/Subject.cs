@@ -4,5 +4,8 @@
     {
         public int Id { get; set; }
         public string Name { get; set; } = null!;
+
+        public virtual ICollection<Lectures> Lectures { get; set; }
+            = new HashSet<Lectures>();
     }
 }

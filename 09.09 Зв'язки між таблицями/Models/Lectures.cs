@@ -5,9 +5,11 @@
         public int Id { get; set; }
         public DateTime Date { get; set; }
 
-        public Subject Subject { get; set; } = null!;//навигационка на предмет
         public int SubjectId { get; set; }
         public int TeacherId { get; set; }
-        public Teachers Teacher { get; set; } = null!;//навигационка на викладача
+        public virtual Subject Subject { get; set; } = null!;//навигационка на предмет
+        public virtual Teachers Teacher { get; set; } = null!;//навигационка на викладача
+        public virtual ICollection<GroupLectures> GroupsLectures { get; set; }
+            = new HashSet<GroupLectures>();
     }
 }
