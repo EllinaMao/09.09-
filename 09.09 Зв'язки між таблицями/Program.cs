@@ -108,10 +108,14 @@ namespace DataBaseModels
             //}
             #endregion
 
-            using var context = new DbContext();
-            context.Database.EnsureCreated();
+            #region LinqRequests
+            using (var context = new DbContext())
+            {
+                context.Database.EnsureCreated();
+                LinqDatabaseRequests.ShowBuildingIfSummMoreThen(context, 100000);
 
-
+            }
+            #endregion
         }
     }
 }
