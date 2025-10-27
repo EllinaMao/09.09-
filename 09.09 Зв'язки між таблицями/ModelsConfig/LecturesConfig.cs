@@ -1,8 +1,8 @@
-﻿using _09._09_Зв_язки_між_таблицями.Models;
+﻿using ModelsCreating.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace _09._09_Зв_язки_між_таблицями.ModelsConfig
+namespace ModelsConfiguring.ModelsConfig
 {
     internal class LecturesConfig : IEntityTypeConfiguration<Lectures>
     {
@@ -41,13 +41,13 @@ namespace _09._09_Зв_язки_між_таблицями.ModelsConfig
             // --- Настройка внешних ключей (связей) ---
             // Связь Один (Subjects) ко Многим (Lectures)
             builder.HasOne(l => l.Subject) // У лекции один предмет
-                   .WithMany(s => s.Lectures) // У предмета много лекций
+                   .WithMany(s => s.LecturesNav) // У предмета много лекций
                    .HasForeignKey(l => l.SubjectId)
                    .OnDelete(DeleteBehavior.Cascade); 
 
             // Связь Один (Teachers) ко Многим (Lectures)
             builder.HasOne(l => l.Teacher) // У лекции один преподаватель
-                   .WithMany(t => t.Lectures) // У преподавателя много лекций
+                   .WithMany(t => t.LecturesNav) // У преподавателя много лекций
                    .HasForeignKey(l => l.TeacherId)
                    .OnDelete(DeleteBehavior.Cascade);
         }

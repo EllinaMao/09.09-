@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ModelsCreating.Models;
 
-namespace _09._09_Зв_язки_між_таблицями.ModelsConfig
+namespace ModelsConfiguring.ModelsConfig
 {
     internal class CuratorsConfig : IEntityTypeConfiguration<Curators>
     {

@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using _09._09_Зв_язки_між_таблицями.Models;
-namespace _09._09_Зв_язки_між_таблицями.ModelsConfig
+using ModelsCreating.Models;
+namespace ModelsConfiguring.ModelsConfig
+
 {
     internal class DepartmentsConfig : IEntityTypeConfiguration<Departments>
     {
@@ -44,8 +45,8 @@ namespace _09._09_Зв_язки_між_таблицями.ModelsConfig
                 .HasColumnName("faculty_id")
                 .IsRequired();
 
-            builder.HasOne(d => d.Faculty)
-                   .WithMany(f => f.Departments)
+            builder.HasOne(d => d.FacultyNav)
+                   .WithMany(f => f.DepartmentsNav)
                    .HasForeignKey(d => d.FacultyId)
                    .OnDelete(DeleteBehavior.Cascade);
 

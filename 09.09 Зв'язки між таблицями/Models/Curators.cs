@@ -1,5 +1,4 @@
-﻿using _09._09_Зв_язки_між_таблицями.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _09._09_Зв_язки_між_таблицями
+namespace ModelsCreating.Models
 {
 
     public class Curators
@@ -15,7 +14,7 @@ namespace _09._09_Зв_язки_між_таблицями
         public int Id {  get; set; }
         public string Name { get; set; } = null!;
         public string Surname { get; set; } = null!;
-        public virtual ICollection<GroupsCurators> GroupsCurators { get; set; }
+        public virtual ICollection<GroupsCurators> GroupsCuratorsNav { get; set; }
             = new HashSet<GroupsCurators>();
     }
 }

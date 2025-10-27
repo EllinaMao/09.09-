@@ -1,5 +1,6 @@
-﻿namespace _09._09_Зв_язки_між_таблицями
+﻿namespace DataBaseModels
 {
+
     internal class Program
     {
         static void Main(string[] args)

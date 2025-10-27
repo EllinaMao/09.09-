@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _09._09_Зв_язки_між_таблицями.Models
+namespace ModelsCreating.Models
 {
     public class Groups
     {
@@ -12,15 +12,13 @@ namespace _09._09_Зв_язки_між_таблицями.Models
         public string Name { get; set; } = null!;
         public int Year { get; set; }
         public int DepartmentId { get; set; }
-        public Departments Department { get; set; } = null!;
 
-        public virtual Departments Departments { get; set; } // Навигационное свойство
-
-        public virtual ICollection<GroupsCurators> GroupsCurators { get; set; }
+        public virtual Departments DepartmentNav { get; set; } = null!;// Навигационное свойство
+        public virtual ICollection<GroupsCurators> GroupsCuratorsNav { get; set; }
             = new HashSet<GroupsCurators>();
-        public virtual ICollection<GroupLectures> GroupsLectures { get; set; }
+        public virtual ICollection<GroupLectures> GroupsLecturesNav { get; set; }
             = new HashSet<GroupLectures>();
-        public virtual ICollection<GroupStudents> GroupsStudents { get; set; }
+        public virtual ICollection<GroupStudents> GroupsStudentsNav { get; set; }
             = new HashSet<GroupStudents>();
     }
 }

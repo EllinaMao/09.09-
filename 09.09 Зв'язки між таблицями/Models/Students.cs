@@ -1,4 +1,4 @@
-﻿namespace _09._09_Зв_язки_між_таблицями.Models
+﻿namespace ModelsCreating.Models
 {
     public class Students
     {
@@ -6,7 +6,7 @@
         public string Name { get; set; } = null!;
         public int Rating { get; set; }
         public string Surname { get; set; } = null!;
-        public virtual ICollection<GroupStudents> GroupsStudents { get; set; }
+        public virtual ICollection<GroupStudents> GroupsStudentsNav { get; set; }
             = new HashSet<GroupStudents>();
     }
 }

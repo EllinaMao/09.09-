@@ -1,12 +1,16 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Protocols;
+using ModelsConfiguring.ModelsConfig;
+using ModelsCreating.Models;
+using NLog.Internal;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using _09._09_Зв_язки_між_таблицями.Models;
-using Microsoft.EntityFrameworkCore;
 
-namespace _09._09_Зв_язки_між_таблицями.ModelsConfig
+namespace DataBaseModels
 {
     //Наследуемся от Microsoft.EntityFrameworkCore.DbContext
     public class DbContext : Microsoft.EntityFrameworkCore.DbContext
@@ -25,10 +29,11 @@ namespace _09._09_Зв_язки_між_таблицями.ModelsConfig
         #region Constructor
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // Здесь должна быть ваша строка подключения
-            //optionsBuilder.UseSqlServer("Server=YourServerName;Database=UniversityDb;Trusted_Connection=True;");
-            // сделать иксемель конфиг, не быть ленивой жопой
+            string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
+            optionsBuilder.UseSqlServer(connectionString);
         }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new DepartmentsConfig());

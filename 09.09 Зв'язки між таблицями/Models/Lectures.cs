@@ -1,4 +1,4 @@
-﻿namespace _09._09_Зв_язки_між_таблицями.Models
+﻿namespace ModelsCreating.Models
 {
     public class Lectures
     {
@@ -9,7 +9,7 @@
         public int TeacherId { get; set; }
         public virtual Subject Subject { get; set; } = null!;//навигационка на предмет
         public virtual Teachers Teacher { get; set; } = null!;//навигационка на викладача
-        public virtual ICollection<GroupLectures> GroupsLectures { get; set; }
+        public virtual ICollection<GroupLectures> GroupsLecturesNav { get; set; }
             = new HashSet<GroupLectures>();
     }
 }

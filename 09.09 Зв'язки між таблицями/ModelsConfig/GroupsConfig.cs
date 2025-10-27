@@ -1,8 +1,8 @@
-﻿using _09._09_Зв_язки_між_таблицями.Models;
+﻿using ModelsCreating.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace _09._09_Зв_язки_між_таблицями.ModelsConfig
+namespace ModelsConfiguring.ModelsConfig
 {
     internal class GroupsConfig : IEntityTypeConfiguration<Groups>
     {
@@ -33,8 +33,8 @@ namespace _09._09_Зв_язки_між_таблицями.ModelsConfig
                 .HasColumnName("department_id")
                 .IsRequired();
 
-            builder.HasOne(g => g.Department)
-                    .WithMany(d => d.Groups)
+            builder.HasOne(g => g.DepartmentNav)
+                    .WithMany(d => d.GroupNav)
                     .HasForeignKey(g => g.DepartmentId)
                     .OnDelete(DeleteBehavior.Cascade);
         }
