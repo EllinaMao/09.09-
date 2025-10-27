@@ -13,14 +13,24 @@ namespace DataBaseModels
         public static IEnumerable<int> GetBuildingsWithFinancingAbove(DbContext context, decimal sum)
         {
                 var buildings = context.Departments
-                .GroupBy(d => d.Building) // Группируем по номеру корпуса
-                .Where(g => g.Sum(d => d.Financing) > sum) // Фильтруем по сумме
-                .Select(g => g.Key) // Выбираем номер корпуса
+                .GroupBy(d => d.Building) // группируем по номеру корпуса
+                .Where(g => g.Sum(d => d.Financing) > sum) // фильтруем по сумме
+                .Select(g => g.Key) // выбираем номер корпуса 
                 .ToList();
             return buildings;
         }
 
-        //2.Вывести названия групп 5 - го курса кафедры «Software Development», которые имеют более 10 пар в первую неделю.
+        //2.Вывести названия групп 5 - го курса кафедры «Software Development», которые имеют более 10 пар в первую неделю.(в первую неделю чего?)
+        public static IEnumerable<string> GetGroupsByAmountOfLectures(DbContext context, int groupYear, int amountLessons, string departmentName, DateTime weekStart, DateTime weekEnd)
+        {
+            var groups = context.Groups
+                .Where(g => g.Year == groupYear &&//фильтруем по нужному году обучения
+                g.DepartmentNav.Name == departmentName &&//в нужной кафедре
+                g.GroupsLecturesNav.Count(gl => gl.LectureNav.Date >= weekStart &&
+                gl.LectureNav.Date <= weekEnd) > amountLessons)//фильтруем первую неделю
+                .Select(g => g.Name);
+            return groups;
+        }
 
         //3.Вывести названия групп, имеющих рейтинг(средний рейтинг всех студентов группы) больше, чем рейтинг группы «D221».
 

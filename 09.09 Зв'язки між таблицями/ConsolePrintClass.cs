@@ -18,7 +18,7 @@ namespace DataBaseModels
                 Console.WriteLine("Не найдено.");
                 return;
             }
-            // Если есть, используем предоставленную функцию printAction
+            // Если есть, используем или ф-ция или лямбду
             foreach (var item in resultList)
             {
                 printAction(item);
