@@ -107,14 +107,39 @@ namespace DataBaseModels
             //    }
             //}
             #endregion
+            #region DBTasks
 
+            var num1 = 100000;
+            var task1 = $"Вывести номера корпусов, если суммарный фонд финансирования расположенных в них кафедр превышает {num1}";
+            var courseT2 = 5;
+            var departmentNameT2 = "Software Development";
+            var lessonsNum = 10;
+
+            var task2 = $"Вывести названия групп {courseT2} - го курса кафедры «{departmentNameT2}», которые имеют более {lessonsNum} пар в первую неделю.";
+
+            var task3 = $"Вывести названия групп, имеющих рейтинг(средний рейтинг всех студентов группы) больше, чем рейтинг группы «D221».";
+            var task4 = $"Вывести фамилии и имена преподавателей, ставка которых выше средней ставки профессоров.";
+            var task5 = $"Вывести названия групп, у которых больше одного куратора.";
+            var task6 = $"Вывести названия групп, имеющих рейтинг(средний рейтинг всех студентов группы) меньше, чем минимальный рейтинг групп 5 - го курса.";
+            var task7 = $"Вывести названия факультетов, суммарный фонд финансирования кафедр которых больше суммарного фонда финансирования кафедр факультета «Com­puter Science».  Для этого запроса напишите процедуру, и вызовите  в коде процедуру";
+            var task8 = $"Вывести названия дисциплин и полные имена преподавателей, читающих наибольшее количество лекций по ним.";
+            var task9 = $"Вывести название дисциплины, по которому читается меньше всего лекций.";
+            var task10 = $"Вывести количество студентов и читаемых дисциплин на кафедре «Software Development»";
+            var task11 = $"Выполните в коде Вставку новой дисциплины, затем выполните изменение ее название, далее удалите выполняя команды SQL со стороны SQL клиента";
+            #endregion
             #region LinqRequests
+
+            #region 1. Корпуса с фондом > 100 000
             using (var context = new DbContext())
             {
-                context.Database.EnsureCreated();
-                LinqDatabaseRequests.ShowBuildingIfSummMoreThen(context, 100000);
 
+                context.Database.EnsureCreated();
+                var res = LinqDatabaseRequests.GetBuildingsWithFinancingAbove(context, 100000);
+
+                ConsolePrintClass.PrintResults(res, task1, b => Console.WriteLine($"Корпус {b}"));
             }
+            #endregion
+
             #endregion
         }
     }

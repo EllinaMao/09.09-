@@ -17,7 +17,6 @@ namespace DataBaseModels
                 .Where(g => g.Sum(d => d.Financing) > sum) // Фильтруем по сумме
                 .Select(g => g.Key) // Выбираем номер корпуса
                 .ToList();
-
             return buildings;
         }
 
